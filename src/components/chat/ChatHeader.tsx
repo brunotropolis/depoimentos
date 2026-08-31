@@ -4,6 +4,7 @@ import {
   ChevronRight,
   Info,
   MoreHorizontal,
+  MoreVertical,
   Phone,
   Shield,
   Video,
@@ -41,7 +42,7 @@ export const ChatHeader = ({
   const isTinder = layout.id === "tinder"
   const BackIcon = isInstagram ? ChevronLeft : ArrowLeft
   const actionIcons = isWhatsApp
-    ? [Video, Phone, Info]
+    ? [Video, Phone, MoreVertical]
     : isIMessage
       ? [Info]
       : isSnapchat
@@ -107,7 +108,7 @@ export const ChatHeader = ({
     "flex items-center justify-center rounded-full font-semibold",
     avatarClass,
     isWhatsApp
-      ? "bg-white/15 text-[0.75rem]"
+      ? "bg-[#dfe5e7] text-[#54656f] text-[0.75rem]"
       : isIMessage
         ? "bg-black/5 text-[0.7rem]"
         : isSnapchat

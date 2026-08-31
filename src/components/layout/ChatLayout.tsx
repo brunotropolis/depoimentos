@@ -67,8 +67,8 @@ export const ChatLayout = ({
   conversationContainerRef,
   conversationContentRef,
 }: ChatLayoutProps) => {
-  const bodyFont = `Roboto, ${layout.fonts.body}`
-  const headerFont = `Roboto, ${layout.fonts.header}`
+  const bodyFont = layout.fonts.body
+  const headerFont = layout.fonts.header
   const selfId = getSelfParticipantId(conversation.participants, activeParticipantId)
   const isGroup = conversation.participants.length > 2
   const headerParticipant = !isGroup

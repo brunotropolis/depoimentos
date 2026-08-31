@@ -2,7 +2,7 @@ import { toJpeg, toPng } from "html-to-image"
 import type { ExportSettings } from "../store/conversationStore"
 
 const IMAGE_LOAD_TIMEOUT_MS = 3000
-const EXPORT_TIMEOUT_MS = 20000
+const EXPORT_TIMEOUT_MS = 30000
 
 const withTimeout = <T>(promise: Promise<T>, timeoutMs: number, message: string) =>
   new Promise<T>((resolve, reject) => {
@@ -128,8 +128,13 @@ export const exportNodeToImage = async (
       width: settings.width,
       height: settings.height,
       pixelRatio: settings.scale,
-      cacheBust: true,
+      cacheBust: false,
       useCORS: true,
+      // O print do chat usa fontes do sistema (Roboto/-apple-system/Helvetica/Arial).
+      // As Google Fonts (IBM Plex/Space Grotesk) só aparecem na interface do editor,
+      // então embutir fonte é inútil aqui e trava o export (SecurityError ao ler o CSS
+      // cross-origin do Google Fonts + fetch que pendura). skipFonts resolve.
+      skipFonts: true,
       imagePlaceholder,
       style: {
         transform,

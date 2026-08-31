@@ -83,7 +83,7 @@ export const MessageBubble = ({
   }
   if (isInstagram && isOwn) {
     bubbleStyle.backgroundImage =
-      "linear-gradient(135deg, #7c3aed 0%, #6366f1 55%, #3b82f6 100%)"
+      "linear-gradient(180deg, #3b5afe 0%, #8a3ff0 100%)"
   }
   if (isSnapchat) {
     bubbleStyle.backgroundColor = "transparent"

@@ -86,7 +86,7 @@ export const MessageInput = ({ placeholder = "Mensagem", layout }: MessageInputP
           size="icon"
           className="h-9 w-9 rounded-full text-white shadow-sm hover:bg-transparent"
           style={{
-            backgroundImage: "linear-gradient(135deg, #7c3aed 0%, #6366f1 55%, #3b82f6 100%)",
+            backgroundImage: "linear-gradient(180deg, #3b5afe 0%, #8a3ff0 100%)",
           }}
         >
           <Camera className={iconClass} />
