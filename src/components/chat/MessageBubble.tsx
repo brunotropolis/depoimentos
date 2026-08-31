@@ -83,7 +83,7 @@ export const MessageBubble = ({
   }
   if (isInstagram && isOwn) {
     bubbleStyle.backgroundImage =
-      "linear-gradient(180deg, #3b5afe 0%, #8a3ff0 100%)"
+      "linear-gradient(180deg, #4f8ef4 0%, #8f6ce6 100%)"
   }
   if (isSnapchat) {
     bubbleStyle.backgroundColor = "transparent"
@@ -211,7 +211,7 @@ export const MessageBubble = ({
           ) : null}
         </div>
       ) : (
-        <p className="whitespace-pre-wrap break-words leading-relaxed">{message.content}</p>
+        <p className="whitespace-pre-wrap break-words leading-[1.34] tracking-[0.005em]">{message.content}</p>
       )}
       {isWhatsApp ? (
         <div

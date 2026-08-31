@@ -1,4 +1,4 @@
-import { Camera, ImagePlus, Mic, Plus, Send, Smile, Sticker } from "lucide-react"
+import { Camera, ImagePlus, Mic, Paperclip, Plus, Send, Smile, Sticker } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/utils/cn"
 import type { LayoutConfig } from "@/types/layout"
@@ -86,7 +86,7 @@ export const MessageInput = ({ placeholder = "Mensagem", layout }: MessageInputP
           size="icon"
           className="h-9 w-9 rounded-full text-white shadow-sm hover:bg-transparent"
           style={{
-            backgroundImage: "linear-gradient(180deg, #3b5afe 0%, #8a3ff0 100%)",
+            backgroundImage: "linear-gradient(180deg, #4f8ef4 0%, #8f6ce6 100%)",
           }}
         >
           <Camera className={iconClass} />
@@ -112,7 +112,7 @@ export const MessageInput = ({ placeholder = "Mensagem", layout }: MessageInputP
       ) : null}
       {isWhatsApp ? (
         <Button variant="ghost" size="icon" className={iconButtonClass}>
-          <Plus className={iconClass} />
+          <Smile className={iconClass} />
         </Button>
       ) : !isIMessage && !isSnapchat && !isMessenger && !isInstagram && !isTinder ? (
         <Button variant="ghost" size="icon" className={iconButtonClass}>
@@ -149,9 +149,17 @@ export const MessageInput = ({ placeholder = "Mensagem", layout }: MessageInputP
         <span className="text-[var(--chat-muted)]">{inputPlaceholder}</span>
       </div>
       {isWhatsApp ? (
-        <Button variant="ghost" size="icon" className={iconButtonClass}>
-          <Camera className={iconClass} />
-        </Button>
+        <>
+          <Button variant="ghost" size="icon" className={iconButtonClass}>
+            <Sticker className={iconClass} />
+          </Button>
+          <Button variant="ghost" size="icon" className={iconButtonClass}>
+            <Paperclip className={cn(iconClass, "-rotate-45")} />
+          </Button>
+          <Button variant="ghost" size="icon" className={iconButtonClass}>
+            <Camera className={iconClass} />
+          </Button>
+        </>
       ) : null}
       {isSnapchat ? (
         <Button
