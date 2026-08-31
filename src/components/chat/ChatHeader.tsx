@@ -1,12 +1,13 @@
 import {
   ArrowLeft,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   Info,
   MoreHorizontal,
-  MoreVertical,
   Phone,
   Shield,
+  User,
   Video,
 } from "lucide-react"
 import type { LayoutConfig, LayoutTheme } from "@/types/layout"
@@ -42,7 +43,7 @@ export const ChatHeader = ({
   const isTinder = layout.id === "tinder"
   const BackIcon = isInstagram ? ChevronLeft : ArrowLeft
   const actionIcons = isWhatsApp
-    ? [Video, Phone, MoreVertical]
+    ? [Phone]
     : isIMessage
       ? [Info]
       : isSnapchat
@@ -132,6 +133,15 @@ export const ChatHeader = ({
         className={avatarClass}
         borderClassName={avatarBorderClass}
       />
+    ) : isWhatsApp ? (
+      <div
+        className={cn(
+          avatarClass,
+          "flex items-center justify-center overflow-hidden rounded-full bg-[#12a08d] text-white",
+        )}
+      >
+        <User className="h-[64%] w-[64%] translate-y-[8%]" strokeWidth={2.25} />
+      </div>
     ) : (
       <div className={fallbackClass}>{fallbackText}</div>
     )
@@ -252,9 +262,10 @@ export const ChatHeader = ({
                 key={`${layout.id}-action-${index}`}
                 size="icon"
                 variant="ghost"
-                className={iconButtonClass}
+                className={cn(iconButtonClass, isWhatsApp && "!w-auto gap-0.5 px-2")}
               >
                 <Icon className={iconClass} />
+                {isWhatsApp ? <ChevronDown className="h-3.5 w-3.5 opacity-90" /> : null}
               </Button>
             ))}
           </div>

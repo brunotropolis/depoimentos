@@ -34,7 +34,7 @@ export const ConversationView = ({
   const dateBadgeClass = cn(
     "mx-auto w-fit rounded-full px-2.5 py-0.5 text-[0.7rem]",
     isWhatsApp
-      ? "bg-white/70 text-[0.65rem] font-medium text-[#54656f] shadow-[0_1px_0_rgba(0,0,0,0.08)]"
+      ? "bg-[color:var(--chat-surface)] text-[0.65rem] font-medium text-[var(--chat-muted)] shadow-sm"
       : isSnapchat
         ? "bg-black/5 text-[0.6rem] font-medium text-[var(--chat-muted)]"
         : isMessenger
@@ -48,7 +48,7 @@ export const ConversationView = ({
   const systemMessageClass = cn(
     "mx-auto max-w-[70%] rounded-full px-4 py-2 text-center text-xs",
     isWhatsApp
-      ? "bg-white/70 text-[#54656f] shadow-[0_1px_0_rgba(0,0,0,0.08)]"
+      ? "bg-[color:var(--chat-surface)] text-[var(--chat-muted)] shadow-sm"
       : isSnapchat
         ? "bg-black/5 text-[var(--chat-muted)]"
         : isMessenger

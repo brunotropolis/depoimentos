@@ -1,4 +1,4 @@
-import { Camera, ImagePlus, Mic, Paperclip, Plus, Send, Smile, Sticker } from "lucide-react"
+import { Camera, ImagePlus, Mic, Plus, Send, Smile, Sticker } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/utils/cn"
 import type { LayoutConfig } from "@/types/layout"
@@ -112,7 +112,7 @@ export const MessageInput = ({ placeholder = "Mensagem", layout }: MessageInputP
       ) : null}
       {isWhatsApp ? (
         <Button variant="ghost" size="icon" className={iconButtonClass}>
-          <Smile className={iconClass} />
+          <Plus className={cn(iconClass, "!h-6 !w-6")} />
         </Button>
       ) : !isIMessage && !isSnapchat && !isMessenger && !isInstagram && !isTinder ? (
         <Button variant="ghost" size="icon" className={iconButtonClass}>
@@ -127,7 +127,7 @@ export const MessageInput = ({ placeholder = "Mensagem", layout }: MessageInputP
       <div
         className={cn(
           "flex-1 rounded-full px-4 py-2 text-sm",
-          isWhatsApp && "min-h-[36px] py-2 text-[0.95rem] shadow-sm",
+          isWhatsApp && "flex items-center justify-between gap-2 min-h-[40px] py-2 text-[0.95rem]",
           isIMessage && "flex items-center gap-2 border py-2 text-[0.95rem]",
           isSnapchat && "flex items-center gap-2 border bg-[var(--chat-input-inner)] py-2 text-[0.95rem]",
           isMessenger && "flex items-center gap-2 border bg-[var(--chat-input-inner)] py-2 text-[0.95rem]",
@@ -147,19 +147,12 @@ export const MessageInput = ({ placeholder = "Mensagem", layout }: MessageInputP
         {isSnapchat ? <Smile className={cn(iconClass, "text-[var(--chat-muted)]")} /> : null}
         {isMessenger ? <Smile className={cn(iconClass, "text-[var(--chat-muted)]")} /> : null}
         <span className="text-[var(--chat-muted)]">{inputPlaceholder}</span>
+        {isWhatsApp ? <Sticker className={cn(iconClass, "shrink-0 text-[var(--chat-muted)]")} /> : null}
       </div>
       {isWhatsApp ? (
-        <>
-          <Button variant="ghost" size="icon" className={iconButtonClass}>
-            <Sticker className={iconClass} />
-          </Button>
-          <Button variant="ghost" size="icon" className={iconButtonClass}>
-            <Paperclip className={cn(iconClass, "-rotate-45")} />
-          </Button>
-          <Button variant="ghost" size="icon" className={iconButtonClass}>
-            <Camera className={iconClass} />
-          </Button>
-        </>
+        <Button variant="ghost" size="icon" className={iconButtonClass}>
+          <Camera className={iconClass} />
+        </Button>
       ) : null}
       {isSnapchat ? (
         <Button
